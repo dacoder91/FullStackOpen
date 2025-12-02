@@ -23,6 +23,7 @@
   --hsla-example: hsla(210, 100%, 56%, 1); /* Ejemplo de color HSLA(valores corresponden a la tonalidad, saturación, luminosidad y alfa) */
 }
 
+/* Lo siguiente es para importar la fuente Inter Variable desde una URL externa */
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -33,6 +34,85 @@
 }
 
 
+body{
+  font-family: system-ui; /* Fuente del sistema para mejor rendimiento */
+  background-color: var(--background); /* Usamos la variable CSS definida anteriormente */
+  color: var(--text-primary); /* Color de texto principal */
+  min-height: 100vh; /* Altura mínima de la ventana gráfica */
+  display: flex; /* Usamos flexbox para el diseño */
+  flex-direction: column; /* Dirección de los elementos en columna */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Titulos principales */
+h1{
+  font-size: 1.5rem; /*rem es una unidad relativa al tamaño de la fuente raíz */
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Espacio entre elementos flexibles */
+
+  svg{
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-light)
+  }
+}
+
+h1 + p{ /* Selecciona el párrafo que sigue inmediatamente a un h1 */
+  text-wrap: balance; /* Balancea el texto para que las líneas tengan una longitud similar cuando se cambia el tamaño de la ventana */
+
+}
+
+/* Estilo general para el header */
+header{
+  background: var(--background);
+  border-bottom: solid 1px var(--border); /* cada valor corresponde a el tipo de borde, grosor y color */
+  padding: 0.5rem 1rem; /* el primer valor es el padding vertical y el segundo el horizontal */
+  display: flex;
+  align-items: center; /* Alinea los elementos hijos verticalmente en el centro */
+  justify-content: space-between; /* Espacio entre los elementos hijos */
+  gap: 2rem;
+
+  /* Estilo para el nh dentro del header */
+  h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+/* Navegación del header a otras páginas */
+nav{
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+
+  a{
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: var(--text-secondary);
+    transition: color 0.2s; /* sirve para cuando se aplica un cambio de color, este se realiza en 0.2 segundos */
+    font-weight: 500; /* Peso de la fuente, quiere decir que es un poco más gruesa que la normal */
+    
+    &:hover, &:focus{ /* &: se refiere al elemento padre, en este caso a los enlaces a, focus es cuando el enlace está enfocado */
+      color: var(--primary); 
+      outline: none; /* Elimina el contorno al enfocar */
+
+    }
+  }
+}
+/* Estilo para los enlaces dentro del div del header */
+header div a{
+  padding: 0.5rem 1rem; /* Espaciado interno vertical y horizontal */
+  border-radius: 0.5rem;  /* Bordes redondeados */
+  background-color: #334155;  /* Color de fondo */
+  color: var(--text-primary);   /* Color del texto */
+  display: inline-block;  /* Hace que el enlace se comporte como un bloque en línea */
+  font-size: 0.875rem;  /* Tamaño de la fuente */
+  font-weight: 700;  /* Peso de la fuente */  
+  text-decoration: none;  /* Elimina el subrayado del enlace */
+  /* TODO */  
+}
 
 
 
@@ -56,7 +136,7 @@ article{
     
     svg{
       color:var(--primary-light); /* Color de los iconos SVG */
-      background: rgba(0,153,255,0.3); /*  Fondo con transparencia(cada valor es rojo, verde, azul y alfa) */
+      background: rgba(67, 151, 208, 0.3); /*  Fondo con transparencia(cada valor es rojo, verde, azul y alfa) */
       width: 64px; /* Ancho del icono */
       height: 64px; /* Alto del icono */
       border-radius: 100%; /* 100% convierte un cuadrado en un círculo si ancho y alto son iguales.*/
